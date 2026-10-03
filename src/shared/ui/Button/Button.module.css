@@ -1,0 +1,28 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 24px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--color-brand-blue-giant);
+  color: var(--color-brand-white-light);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.button:hover:enabled {
+  background: var(--color-brand-violet-pulsar);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--color-brand-violet-pulsar);
+  outline-offset: 4px;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

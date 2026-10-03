@@ -45,6 +45,9 @@
   --color-text-placeholder: #7d7d7f;
   --color-icon: #606062;
   --color-accent: #007aff;
+  --color-border-input: #d9dce3;
+  --color-text-error: #b42318;
+  --color-background-error: #fff1f0;
 
   --color-message-outgoing-start: #0071eb;
   --color-message-outgoing-end: #149ee6;

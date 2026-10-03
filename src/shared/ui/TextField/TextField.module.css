@@ -1,0 +1,54 @@
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border-input);
+  border-radius: 14px;
+  background: var(--color-background-input);
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.input:focus-visible {
+  border-color: var(--color-brand-blue-giant);
+  outline: 3px solid color-mix(in srgb, var(--color-brand-blue-giant) 15%, transparent);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--color-text-error);
+}
+
+.input:disabled {
+  background: var(--color-background-header);
+}
+
+.hint,
+.error {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.hint {
+  color: var(--color-text-secondary);
+}
+
+.error {
+  color: var(--color-text-error);
+}
