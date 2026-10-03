@@ -10,16 +10,28 @@ import styles from "./ChatModule.module.css";
 
 interface ChatModuleProps {
   credentials: GreenApiCredentials;
+  authStorageError: string;
   onDisconnect: () => void;
 }
 
-export function ChatModule({ credentials, onDisconnect }: ChatModuleProps) {
-  const { conversations, activeChat, onEvent, openChat, selectChat } =
-    useChatStore();
+export function ChatModule({
+  credentials,
+  authStorageError,
+  onDisconnect,
+}: ChatModuleProps) {
+  const {
+    conversations,
+    activeChat,
+    storageError,
+    onEvent,
+    openChat,
+    selectChat,
+  } = useChatStore(credentials.idInstance);
   const notifications = useNotifications(credentials, onEvent);
   const statuses = useMessageStatuses(credentials, conversations, onEvent);
   const sender = useSendMessage(credentials, onEvent);
-  const error = notifications.error || statuses.error;
+  const error =
+    authStorageError || storageError || notifications.error || statuses.error;
 
   function retry() {
     notifications.retry();
@@ -33,9 +45,11 @@ export function ChatModule({ credentials, onDisconnect }: ChatModuleProps) {
       {error && (
         <div className={styles.notice} role="alert">
           <span>{error}</span>
-          <button type="button" onClick={retry}>
-            Повторить
-          </button>
+          {!authStorageError && !storageError && (
+            <button type="button" onClick={retry}>
+              Повторить
+            </button>
+          )}
         </div>
       )}
       <div className={styles.sidebar}>

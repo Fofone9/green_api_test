@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import type { GreenApiCredentials } from "../../../shared/api/green-api/types";
+import { loadCredentials } from "./credentialStorage";
 import {
   emptyCredentialErrors,
   normalizeCredentials,
@@ -14,10 +15,13 @@ interface AuthFormOptions {
 }
 
 export function useAuthForm({ isLoading, onConnect, onEdit }: AuthFormOptions) {
-  const [values, setValues] = useState<GreenApiCredentials>({
-    idInstance: "",
-    apiTokenInstance: "",
-  });
+  const [values, setValues] = useState<GreenApiCredentials>(
+    () =>
+      loadCredentials() ?? {
+        idInstance: "",
+        apiTokenInstance: "",
+      },
+  );
   const [errors, setErrors] = useState(emptyCredentialErrors);
 
   function updateField(field: keyof GreenApiCredentials, value: string) {

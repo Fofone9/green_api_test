@@ -2,9 +2,15 @@ import { AuthModule, useAuthorization } from "./modules/auth";
 import { ChatModule } from "./modules/chat";
 
 function App() {
-  const { state, connect, clearError, disconnect } = useAuthorization();
+  const { state, storageError, connect, clearError, disconnect } =
+    useAuthorization();
   return state.status === "connected" ? (
-    <ChatModule credentials={state.credentials} onDisconnect={disconnect} />
+    <ChatModule
+      key={state.credentials.idInstance}
+      credentials={state.credentials}
+      authStorageError={storageError}
+      onDisconnect={disconnect}
+    />
   ) : (
     <AuthModule
       isLoading={state.status === "loading"}

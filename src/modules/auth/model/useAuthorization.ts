@@ -1,9 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type {
   GreenApiCredentials,
   InstanceState,
 } from "../../../shared/api/green-api/types";
 import { getStateInstance } from "../api/getStateInstance";
+import {
+  clearCredentials,
+  loadCredentials,
+  saveCredentials,
+} from "./credentialStorage";
 
 type AuthorizationState =
   | { status: "idle" }
@@ -25,34 +30,61 @@ const instanceMessages: Record<Exclude<InstanceState, "authorized">, string> = {
 };
 
 export function useAuthorization() {
-  const [state, setState] = useState<AuthorizationState>({ status: "idle" });
+  const [restoredCredentials] = useState(loadCredentials);
+  const [state, setState] = useState<AuthorizationState>(
+    restoredCredentials ? { status: "loading" } : { status: "idle" },
+  );
+  const [storageError, setStorageError] = useState("");
   const activeRequest = useRef<AbortController | null>(null);
 
-  useEffect(() => () => activeRequest.current?.abort(), []);
+  const checkConnection = useCallback(
+    async (credentials: GreenApiCredentials) => {
+      if (activeRequest.current) return;
+      const controller = new AbortController();
+      activeRequest.current = controller;
+
+      const result = await getStateInstance(credentials, controller.signal);
+      if (controller.signal.aborted) return;
+      activeRequest.current = null;
+
+      if (result.status === "error")
+        setState({ status: "error", message: result.message });
+      else if (result.status === "success") {
+        if (result.stateInstance === "authorized") {
+          setStorageError(
+            saveCredentials(credentials)
+              ? ""
+              : "Браузер не смог сохранить авторизацию. После перезагрузки потребуется повторный вход.",
+          );
+        }
+        setState(
+          result.stateInstance === "authorized"
+            ? { status: "connected", credentials }
+            : {
+                status: "error",
+                message: instanceMessages[result.stateInstance],
+              },
+        );
+      }
+    },
+    [],
+  );
 
   async function connect(credentials: GreenApiCredentials) {
     if (activeRequest.current) return;
-    const controller = new AbortController();
-    activeRequest.current = controller;
     setState({ status: "loading" });
-
-    const result = await getStateInstance(credentials, controller.signal);
-    if (controller.signal.aborted) return;
-    activeRequest.current = null;
-
-    if (result.status === "error")
-      setState({ status: "error", message: result.message });
-    else if (result.status === "success") {
-      setState(
-        result.stateInstance === "authorized"
-          ? { status: "connected", credentials }
-          : {
-              status: "error",
-              message: instanceMessages[result.stateInstance],
-            },
-      );
-    }
+    await checkConnection(credentials);
   }
+
+  useEffect(() => {
+    // Состояние обновляется после асинхронной проверки сохранённого инстанса.
+    // oxlint-disable-next-line react/set-state-in-effect
+    if (restoredCredentials) void checkConnection(restoredCredentials);
+    return () => {
+      activeRequest.current?.abort();
+      activeRequest.current = null;
+    };
+  }, [restoredCredentials, checkConnection]);
 
   function clearError() {
     setState((current) =>
@@ -63,8 +95,17 @@ export function useAuthorization() {
   function disconnect() {
     activeRequest.current?.abort();
     activeRequest.current = null;
-    setState({ status: "idle" });
+    setStorageError("");
+    setState(
+      clearCredentials()
+        ? { status: "idle" }
+        : {
+            status: "error",
+            message:
+              "Не удалось удалить сохранённую авторизацию. Очистите данные сайта в браузере.",
+          },
+    );
   }
 
-  return { state, connect, clearError, disconnect };
+  return { state, storageError, connect, clearError, disconnect };
 }
