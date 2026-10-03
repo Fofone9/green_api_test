@@ -1,0 +1,33 @@
+.page {
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 48px 24px;
+  background: var(--gradient-brand-light);
+}
+
+.card {
+  width: 100%;
+  max-width: 448px;
+  padding: 40px;
+  border: 1px solid var(--color-message-incoming);
+  border-radius: 28px;
+  background: var(--color-background-input);
+  color: var(--color-brand-dark-matter);
+}
+
+.footer {
+  margin: 0;
+  color: var(--color-brand-dark-matter);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .page { padding: 24px 16px; }
+  .card { padding: 28px 24px; border-radius: 24px; }
+}

@@ -1,14 +1,7 @@
-import styles from "./App.module.css";
+import { AuthModule } from './modules/auth'
 
 function App() {
-  return (
-    <main className={styles.page}>
-      <section className={styles.card}>
-        <span className={styles.badge}>GREEN-API · MAX</span>
-        <h1 className={styles.title}>Чат MAX</h1>
-      </section>
-    </main>
-  );
+  return <AuthModule />
 }
 
-export default App;
+export default App

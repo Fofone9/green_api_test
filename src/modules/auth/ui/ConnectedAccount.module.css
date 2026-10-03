@@ -1,0 +1,23 @@
+.content { display: grid; gap: 20px; text-align: center; }
+
+.mark {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  margin-inline: auto;
+  border-radius: 18px;
+  background: var(--color-brand-blue-giant);
+  color: var(--color-brand-white-light);
+  font-size: 28px;
+  place-items: center;
+}
+
+.title { margin: 0; font-size: 26px; }
+
+.description {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
