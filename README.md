@@ -38,7 +38,16 @@ src/
   App.module.css   # Стили компонента
   index.css        # Глобальные стили
   main.tsx         # Точка входа
+  styles/
+    colors.css     # Общая палитра MAX
 ```
+
+## Цвета
+
+Палитра находится в `src/styles/colors.css` и подключена глобально через `src/index.css`.
+Используйте CSS-переменные в стилях компонентов: `color: var(--color-text-primary)`.
+Для исходящих сообщений предусмотрен `background: var(--gradient-message-outgoing)`.
+Значения подобраны по скриншоту MAX; это не официальные токены мессенджера.
 
 ## Текущее состояние
 
