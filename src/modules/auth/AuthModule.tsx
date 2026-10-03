@@ -1,27 +1,21 @@
-import { useAuthorization } from './model/useAuthorization'
+import type { GreenApiCredentials } from '../../shared/api/green-api/types'
 import { AuthForm } from './ui/AuthForm'
 import { AuthHeader } from './ui/AuthHeader'
 import { AuthLayout } from './ui/AuthLayout'
-import { ConnectedAccount } from './ui/ConnectedAccount'
 
-export function AuthModule() {
-  const { state, connect, clearError, disconnect } = useAuthorization()
+interface AuthModuleProps {
+  isLoading: boolean
+  error: string
+  onConnect: (credentials: GreenApiCredentials) => Promise<void>
+  onEdit: () => void
+}
+
+export function AuthModule(props: AuthModuleProps) {
 
   return (
     <AuthLayout>
-      {state.status === 'connected' ? (
-        <ConnectedAccount idInstance={state.credentials.idInstance} onDisconnect={disconnect} />
-      ) : (
-        <>
-          <AuthHeader />
-          <AuthForm
-            isLoading={state.status === 'loading'}
-            error={state.status === 'error' ? state.message : ''}
-            onConnect={connect}
-            onEdit={clearError}
-          />
-        </>
-      )}
+      <AuthHeader />
+      <AuthForm {...props} />
     </AuthLayout>
   )
 }
