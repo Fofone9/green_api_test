@@ -1,6 +1,7 @@
 import type { GreenApiCredentials } from "../../shared/api/green-api/types";
 import { useChatStore } from "./model/useChatStore";
 import { useNotifications } from "./model/useNotifications";
+import { useMessageStatuses } from "./model/useMessageStatuses";
 import { useSendMessage } from "./model/useSendMessage";
 import { ChatSidebar } from "./ui/ChatSidebar";
 import { ConversationView } from "./ui/ConversationView";
@@ -16,16 +17,25 @@ export function ChatModule({ credentials, onDisconnect }: ChatModuleProps) {
   const { conversations, activeChat, onEvent, openChat, selectChat } =
     useChatStore();
   const notifications = useNotifications(credentials, onEvent);
+  const statuses = useMessageStatuses(credentials, conversations, onEvent);
   const sender = useSendMessage(credentials, onEvent);
+  const error = notifications.error || statuses.error;
+
+  function retry() {
+    notifications.retry();
+    statuses.retry();
+  }
 
   return (
     <main
-      className={`${styles.layout} ${activeChat ? styles.hasActiveChat : ""} ${notifications.error ? styles.hasNotice : ""}`}
+      className={`${styles.layout} ${activeChat ? styles.hasActiveChat : ""} ${error ? styles.hasNotice : ""}`}
     >
-      {notifications.error && (
+      {error && (
         <div className={styles.notice} role="alert">
-          <span>{notifications.error}</span>
-          <button type="button" onClick={notifications.retry}>Повторить</button>
+          <span>{error}</span>
+          <button type="button" onClick={retry}>
+            Повторить
+          </button>
         </div>
       )}
       <div className={styles.sidebar}>

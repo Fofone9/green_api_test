@@ -14,7 +14,7 @@ export function MessageList({ messages }: { messages: ChatMessage[] }) {
       role="log"
       aria-label="Сообщения"
       aria-live="polite"
-      aria-relevant="additions"
+      aria-relevant="additions text"
     >
       {!messages.length && (
         <p className={styles.empty}>Напишите первое сообщение</p>
