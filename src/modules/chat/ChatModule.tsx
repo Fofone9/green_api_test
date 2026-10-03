@@ -20,8 +20,14 @@ export function ChatModule({ credentials, onDisconnect }: ChatModuleProps) {
 
   return (
     <main
-      className={`${styles.layout} ${activeChat ? styles.hasActiveChat : ""}`}
+      className={`${styles.layout} ${activeChat ? styles.hasActiveChat : ""} ${notifications.error ? styles.hasNotice : ""}`}
     >
+      {notifications.error && (
+        <div className={styles.notice} role="alert">
+          <span>{notifications.error}</span>
+          <button type="button" onClick={notifications.retry}>Повторить</button>
+        </div>
+      )}
       <div className={styles.sidebar}>
         <ChatSidebar
           credentials={credentials}
@@ -33,14 +39,6 @@ export function ChatModule({ credentials, onDisconnect }: ChatModuleProps) {
         />
       </div>
       <section className={styles.conversation} aria-label="Переписка">
-        {notifications.error && (
-          <div className={styles.notice} role="alert">
-            <span>{notifications.error}</span>
-            <button type="button" onClick={notifications.retry}>
-              Повторить
-            </button>
-          </div>
-        )}
         {activeChat ? (
           <ConversationView
             key={activeChat.id}

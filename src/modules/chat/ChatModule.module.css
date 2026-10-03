@@ -1,8 +1,12 @@
 .layout {
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   height: 100svh;
   overflow: hidden;
+}
+.hasNotice {
+  grid-template-rows: auto minmax(0, 1fr);
 }
 .sidebar {
   min-width: 0;
@@ -17,6 +21,7 @@
   background: var(--color-background-chat);
 }
 .notice {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   gap: 16px;

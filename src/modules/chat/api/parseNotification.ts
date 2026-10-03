@@ -59,7 +59,8 @@ function parseEvent(body: JsonObject): ChatEvent | null {
     !body.idMessage ||
     typeof body.timestamp !== "number" ||
     !Number.isFinite(body.timestamp) ||
-    body.timestamp < 0
+    body.timestamp < 0 ||
+    body.timestamp > 8_640_000_000_000
   )
     return null;
   const phone =
