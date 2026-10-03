@@ -1,4 +1,39 @@
 :root {
+  /* Фирменные цвета из предоставленной палитры MAX. */
+  --color-brand-blue-giant: #471aff;
+  --color-brand-purple-nebula: #9500ff;
+  --color-brand-white-light: #ffffff;
+  --color-brand-blue-comet: #00bfff;
+  --color-brand-violet-pulsar: #6e1aff;
+  --color-brand-dark-matter: #0d001a;
+
+  --gradient-brand-light:
+    linear-gradient(to bottom, var(--color-brand-white-light), transparent),
+    linear-gradient(
+      110deg,
+      color-mix(
+        in srgb,
+        var(--color-brand-purple-nebula) 45%,
+        var(--color-brand-white-light)
+      ),
+      color-mix(
+        in srgb,
+        var(--color-brand-blue-giant) 55%,
+        var(--color-brand-white-light)
+      ),
+      color-mix(
+        in srgb,
+        var(--color-brand-blue-comet) 40%,
+        var(--color-brand-white-light)
+      )
+    );
+  --gradient-brand-linear: linear-gradient(
+    135deg,
+    var(--color-brand-purple-nebula),
+    var(--color-brand-blue-giant),
+    var(--color-brand-blue-comet)
+  );
+
   --color-background-chat: #ffffff;
   --color-background-input: #ffffff;
   --color-background-header: #f5f5f5;
