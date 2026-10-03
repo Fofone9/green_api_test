@@ -9,10 +9,10 @@ type AuthorizationState =
   | { status: 'connected'; credentials: GreenApiCredentials }
 
 const instanceMessages: Record<Exclude<InstanceState, 'authorized'>, string> = {
-  notAuthorized: 'Инстанс не авторизован в MAX. Подключите его в личном кабинете GREEN-API и повторите попытку.',
-  blocked: 'Аккаунт MAX заблокирован. Проверьте его состояние в личном кабинете GREEN-API.',
+  notAuthorized: 'Инстанс не авторизован в Telegram. Подключите его в личном кабинете GREEN-API и повторите попытку.',
+  blocked: 'Аккаунт Telegram заблокирован. Проверьте его состояние в личном кабинете GREEN-API.',
   starting: 'Инстанс запускается. Подождите несколько минут и повторите попытку.',
-  suspended: 'На аккаунте MAX действуют ограничения. Проверьте их в личном кабинете GREEN-API.',
+  suspended: 'На аккаунте Telegram действуют ограничения. Проверьте их в личном кабинете GREEN-API.',
   pendingPassword: 'Завершите двухфакторную авторизацию инстанса в личном кабинете GREEN-API.',
 }
 

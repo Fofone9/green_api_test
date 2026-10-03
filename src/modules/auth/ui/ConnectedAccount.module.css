@@ -5,9 +5,9 @@
   width: 56px;
   height: 56px;
   margin-inline: auto;
-  border-radius: 18px;
-  background: var(--color-brand-blue-giant);
-  color: var(--color-brand-white-light);
+  border-radius: 50%;
+  background: var(--color-brand-primary);
+  color: var(--color-brand-white);
   font-size: 28px;
   place-items: center;
 }

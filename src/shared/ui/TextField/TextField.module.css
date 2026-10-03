@@ -14,7 +14,7 @@
   min-height: 52px;
   padding: 14px 16px;
   border: 1px solid var(--color-border-input);
-  border-radius: 14px;
+  border-radius: 12px;
   background: var(--color-background-input);
   color: var(--color-text-primary);
   outline: none;
@@ -25,8 +25,8 @@
 }
 
 .input:focus-visible {
-  border-color: var(--color-brand-blue-giant);
-  outline: 3px solid color-mix(in srgb, var(--color-brand-blue-giant) 15%, transparent);
+  border-color: var(--color-brand-primary);
+  outline: 3px solid color-mix(in srgb, var(--color-brand-primary) 15%, transparent);
 }
 
 .input[aria-invalid='true'] {

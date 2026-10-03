@@ -1,60 +1,31 @@
 :root {
-  /* Фирменные цвета из предоставленной палитры MAX. */
-  --color-brand-blue-giant: #471aff;
-  --color-brand-purple-nebula: #9500ff;
-  --color-brand-white-light: #ffffff;
-  --color-brand-blue-comet: #00bfff;
-  --color-brand-violet-pulsar: #6e1aff;
-  --color-brand-dark-matter: #0d001a;
-
-  --gradient-brand-light:
-    linear-gradient(to bottom, var(--color-brand-white-light), transparent),
-    linear-gradient(
-      110deg,
-      color-mix(
-        in srgb,
-        var(--color-brand-purple-nebula) 45%,
-        var(--color-brand-white-light)
-      ),
-      color-mix(
-        in srgb,
-        var(--color-brand-blue-giant) 55%,
-        var(--color-brand-white-light)
-      ),
-      color-mix(
-        in srgb,
-        var(--color-brand-blue-comet) 40%,
-        var(--color-brand-white-light)
-      )
-    );
-  --gradient-brand-linear: linear-gradient(
-    135deg,
-    var(--color-brand-purple-nebula),
-    var(--color-brand-blue-giant),
-    var(--color-brand-blue-comet)
+  /* Светлая палитра интерфейса в стиле Telegram. */
+  --color-brand-primary: #3390ec;
+  --color-brand-hover: #2b7ed0;
+  --color-brand-white: #ffffff;
+  --color-brand-logo-start: #2aabee;
+  --color-brand-logo-end: #229ed9;
+  --gradient-brand-logo: linear-gradient(
+    180deg,
+    var(--color-brand-logo-start),
+    var(--color-brand-logo-end)
   );
 
-  --color-background-chat: #ffffff;
+  --color-background-auth: #f4f4f5;
+  --color-background-chat: #dbe6d1;
   --color-background-input: #ffffff;
-  --color-background-header: #f5f5f5;
-  --color-background-composer: #f2f3f5;
-  --color-message-incoming: #f2f2f2;
+  --color-background-header: #ffffff;
+  --color-background-composer: #ffffff;
+  --color-message-incoming: #ffffff;
+  --color-message-outgoing: #eeffde;
 
-  --color-text-primary: #070709;
-  --color-text-secondary: #787878;
-  --color-text-placeholder: #7d7d7f;
-  --color-icon: #606062;
-  --color-accent: #007aff;
-  --color-border-input: #d9dce3;
+  --color-text-primary: #000000;
+  --color-text-secondary: #707579;
+  --color-text-placeholder: #707579;
+  --color-text-outgoing: var(--color-text-primary);
+  --color-icon: #707579;
+  --color-accent: var(--color-brand-primary);
+  --color-border-input: #dadce0;
   --color-text-error: #b42318;
   --color-background-error: #fff1f0;
-
-  --color-message-outgoing-start: #0071eb;
-  --color-message-outgoing-end: #149ee6;
-  --color-text-outgoing: #ffffff;
-  --gradient-message-outgoing: linear-gradient(
-    to right,
-    var(--color-message-outgoing-start),
-    var(--color-message-outgoing-end)
-  );
 }

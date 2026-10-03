@@ -1,22 +1,8 @@
-.header { margin-bottom: 28px; }
-
-.brand {
-  color: var(--color-brand-blue-giant);
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-.provider {
-  color: var(--color-text-secondary);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0;
-}
+.header { margin-bottom: 28px; text-align: center; }
 
 .title {
   margin: 24px 0 12px;
-  font-size: 26px;
+  font-size: 28px;
   line-height: 1.2;
   letter-spacing: -0.035em;
 }

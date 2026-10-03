@@ -5,7 +5,7 @@ export function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <main className={styles.page}>
       <section className={styles.card} aria-labelledby="auth-title">{children}</section>
-      <p className={styles.footer}>Текстовые сообщения в MAX через GREEN-API</p>
+      <p className={styles.footer}>Текстовые сообщения в Telegram через GREEN-API</p>
     </main>
   )
 }

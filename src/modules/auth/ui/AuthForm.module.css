@@ -37,7 +37,7 @@
 }
 
 .link {
-  color: var(--color-brand-blue-giant);
+  color: var(--color-brand-primary);
   font-size: 12px;
   line-height: 1.5;
   text-align: center;
@@ -45,6 +45,6 @@
 }
 
 .link:focus-visible {
-  outline: 2px solid var(--color-brand-blue-giant);
+  outline: 2px solid var(--color-brand-primary);
   outline-offset: 4px;
 }

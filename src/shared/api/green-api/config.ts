@@ -1,5 +1,5 @@
-// Адрес сервера MAX из личного кабинета GREEN-API.
-export const GREEN_API_URL = 'https://3100.api.green-api.com'
+// Адрес сервера Telegram из личного кабинета GREEN-API.
+export const GREEN_API_URL = 'https://4100.api.green-api.com'
 
 export const GREEN_API_TIMEOUT_MS = 15_000
 

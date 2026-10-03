@@ -4,7 +4,7 @@ import { getStateInstance } from '../src/modules/auth/api/getStateInstance.ts'
 import { parseInstanceState } from '../src/modules/auth/api/parseInstanceState.ts'
 import { GREEN_API_URL } from '../src/shared/api/green-api/config.ts'
 
-const credentials = { idInstance: '3000000001', apiTokenInstance: 'test-token' }
+const credentials = { idInstance: '4100000001', apiTokenInstance: 'test-token' }
 
 test('принимает все документированные состояния инстанса', () => {
   for (const state of ['authorized', 'notAuthorized', 'blocked', 'starting', 'suspended', 'pendingPassword']) {
@@ -29,7 +29,7 @@ test('проверяет инстанс GET-запросом на сервер �
   assert.equal(requests.length, 1)
   const sentRequest = requests[0]
   assert.ok(sentRequest)
-  assert.equal(sentRequest.url, `${GREEN_API_URL}/waInstance3000000001/getStateInstance/test%2Ftoken%3F%23`)
+  assert.equal(sentRequest.url, `${GREEN_API_URL}/waInstance4100000001/getStateInstance/test%2Ftoken%3F%23`)
   assert.equal(sentRequest.method, 'GET')
   assert.equal(sentRequest.cache, 'no-store')
   assert.equal(sentRequest.credentials, 'omit')

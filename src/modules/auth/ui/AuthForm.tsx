@@ -31,7 +31,7 @@ export function AuthForm({ isLoading, error, onConnect, onEdit }: AuthFormProps)
       </fieldset>
       {error && <p className={styles.error} role="alert">{error}</p>}
       <Button type="submit" disabled={isLoading}>{isLoading ? 'Подключаемся…' : 'Подключиться'}</Button>
-      {isLoading && <span className={styles.loading} role="status">Проверяем подключение к MAX…</span>}
+      {isLoading && <span className={styles.loading} role="status">Проверяем подключение к Telegram…</span>}
       <a className={styles.link} href="https://console.green-api.com/" target="_blank" rel="noreferrer">
         Открыть личный кабинет GREEN-API ↗
       </a>

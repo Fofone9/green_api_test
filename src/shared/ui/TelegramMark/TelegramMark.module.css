@@ -1,0 +1,15 @@
+.mark {
+  display: grid;
+  width: 80px;
+  height: 80px;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: var(--gradient-brand-logo);
+  color: var(--color-brand-white);
+  place-items: center;
+}
+
+.plane {
+  width: 44px;
+  height: 44px;
+}

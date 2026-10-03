@@ -9,13 +9,13 @@ test('пустые поля получают отдельные ошибки', (
 })
 
 test('буквы в ID и пробелы внутри токена не принимаются', () => {
-  const errors = validateCredentials({ idInstance: '3000abc', apiTokenInstance: 'test token' })
+  const errors = validateCredentials({ idInstance: '4100abc', apiTokenInstance: 'test token' })
   assert.ok(errors.idInstance)
   assert.ok(errors.apiTokenInstance)
 })
 
 test('пробелы при копировании удаляются, числовой ID и непустой токен принимаются', () => {
-  const credentials = normalizeCredentials({ idInstance: ' 3000000001 ', apiTokenInstance: ' test-token\n' })
-  assert.deepEqual(credentials, { idInstance: '3000000001', apiTokenInstance: 'test-token' })
+  const credentials = normalizeCredentials({ idInstance: ' 4100000001 ', apiTokenInstance: ' test-token\n' })
+  assert.deepEqual(credentials, { idInstance: '4100000001', apiTokenInstance: 'test-token' })
   assert.deepEqual(validateCredentials(credentials), { idInstance: '', apiTokenInstance: '' })
 })
