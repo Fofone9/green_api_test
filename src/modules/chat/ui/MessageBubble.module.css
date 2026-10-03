@@ -1,6 +1,35 @@
-.bubble { max-width: min(80%, 560px); padding: 10px 14px 8px; border-radius: 16px; }
-.incoming { align-self: flex-start; border-bottom-left-radius: 5px; background: var(--color-message-incoming); }
-.outgoing { align-self: flex-end; border-bottom-right-radius: 5px; background: var(--color-message-outgoing); color: var(--color-text-outgoing); }
-.bubble p { margin: 0; line-height: 1.5; font-size: 15px; white-space: pre-wrap; overflow-wrap: anywhere; }
-.meta { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin-top: 4px; color: var(--color-text-secondary); font-size: 10px; }
-.failed { color: var(--color-text-error); }
+.bubble {
+  max-width: min(80%, 560px);
+  padding: 10px 14px 8px;
+  border-radius: 16px;
+}
+.incoming {
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+  background: var(--color-message-incoming);
+}
+.outgoing {
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+  background: var(--color-message-outgoing);
+  color: var(--color-text-outgoing);
+}
+.bubble p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 15px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 4px;
+  color: var(--color-text-secondary);
+  font-size: 10px;
+}
+.failed {
+  color: var(--color-text-error);
+}

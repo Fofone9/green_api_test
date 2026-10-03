@@ -1,2 +1,2 @@
-export { AuthModule } from './AuthModule'
-export { useAuthorization } from './model/useAuthorization'
+export { AuthModule } from "./AuthModule";
+export { useAuthorization } from "./model/useAuthorization";

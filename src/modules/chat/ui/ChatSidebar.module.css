@@ -1,6 +1,39 @@
-.sidebar { display: flex; height: 100%; flex-direction: column; }
-.header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 24px 20px 16px; }
-.header h1 { margin: 0; font-size: 22px; }
-.header p { margin: 6px 0 0; color: var(--color-text-secondary); font-size: 12px; }
-.action { padding: 8px; border: 0; border-radius: 8px; background: transparent; color: var(--color-accent); cursor: pointer; }
-.newChat { margin: 0 16px 12px; padding: 12px; border: 0; border-radius: 12px; background: var(--color-background-selected); color: var(--color-accent); font-weight: 600; cursor: pointer; }
+.sidebar {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 24px 20px 16px;
+}
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+.header p {
+  margin: 6px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+.action {
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+.newChat {
+  margin: 0 16px 12px;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--color-background-selected);
+  color: var(--color-accent);
+  font-weight: 600;
+  cursor: pointer;
+}

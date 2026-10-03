@@ -28,6 +28,11 @@
 }
 
 @media (max-width: 480px) {
-  .page { padding: 24px 16px; }
-  .card { padding: 28px 24px; border-radius: 16px; }
+  .page {
+    padding: 24px 16px;
+  }
+  .card {
+    padding: 28px 24px;
+    border-radius: 16px;
+  }
 }

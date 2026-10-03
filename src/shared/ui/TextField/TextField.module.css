@@ -26,10 +26,11 @@
 
 .input:focus-visible {
   border-color: var(--color-brand-primary);
-  outline: 3px solid color-mix(in srgb, var(--color-brand-primary) 15%, transparent);
+  outline: 3px solid
+    color-mix(in srgb, var(--color-brand-primary) 15%, transparent);
 }
 
-.input[aria-invalid='true'] {
+.input[aria-invalid="true"] {
   border-color: var(--color-text-error);
 }
 
