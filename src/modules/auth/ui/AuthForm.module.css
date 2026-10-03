@@ -1,0 +1,50 @@
+.form,
+.fields {
+  display: grid;
+  gap: 20px;
+}
+
+.fields {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.error {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--color-background-error);
+  color: var(--color-text-error);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.loading {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  text-align: center;
+}
+
+.link {
+  color: var(--color-brand-blue-giant);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  text-underline-offset: 4px;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-brand-blue-giant);
+  outline-offset: 4px;
+}
